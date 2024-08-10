@@ -37,6 +37,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
             ruby-version: 2.7  # 选择与 gem 兼容的版本
+      - name: Install dependencies
+        run: bundle install
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build --baseurl "/test_theme"
       - name: Set up environment variables
         run: echo "PAGES_REPO_NWO=ZephryLiang/test_theme" >> $GITHUB_ENV
       - name: Setup Pages
